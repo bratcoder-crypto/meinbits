@@ -1,0 +1,300 @@
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Built by Akash Muni</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload landing">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<h1 id="logo"><a href="index.html" onclick="playMorseCode(); return false;">.... . .-.. .-.. --- RePlay</a></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li>
+							<a href="#two">Projects</a>
+							<ul>
+								<li><a href="CAD Models.html">CAD Models</a></li>
+								<li><a href="right-sidebar.html">Hardware Projects</a></li>
+								<li><a href="no-sidebar.html">Scientific Projects</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="no-sidebar2.html">Work experience</a>
+						</li>
+						<!-- <li><a href="elements.html">Elements</a></li>-->
+						<li><a href="images/CV_AKASH_MUNI.pdf" class="button primary icon solid fa-download" download="CV.pdf">Download CV</a></li>
+					</ul>
+				</nav>
+				
+				<script>
+				function playMorseCode() {
+					const morse = ".... . .-.. .-.. ---"; // HELLO in Morse
+					const context = new (window.AudioContext || window.webkitAudioContext)();
+					const dotLength = 0.1; // Duration of a dot (seconds)
+					let time = context.currentTime;
+			
+					// Morse code timing rules
+					const timeUnit = {
+						dot: dotLength,
+						dash: dotLength * 3,
+						space: dotLength,
+						letterSpace: dotLength * 3,
+						wordSpace: dotLength * 7
+					};
+			
+					// Play each symbol
+					morse.split('').forEach(symbol => {
+						if (symbol === '.') {
+							playBeep(context, time, timeUnit.dot);
+							time += timeUnit.dot;
+						} else if (symbol === '-') {
+							playBeep(context, time, timeUnit.dash);
+							time += timeUnit.dash;
+						} else if (symbol === ' ') {
+							time += timeUnit.letterSpace;
+						}
+						// Add space after each symbol
+						time += timeUnit.space;
+					});
+			
+					function playBeep(ctx, startTime, duration) {
+						const oscillator = ctx.createOscillator();
+						const gainNode = ctx.createGain();
+						
+						oscillator.type = 'sine';
+						oscillator.frequency.value = 700; // Pitch in Hz
+						oscillator.connect(gainNode);
+						gainNode.connect(ctx.destination);
+						
+						// Smooth the sound edges
+						gainNode.gain.setValueAtTime(0, startTime);
+						gainNode.gain.linearRampToValueAtTime(1, startTime + 0.001);
+						gainNode.gain.linearRampToValueAtTime(0, startTime + duration - 0.001);
+						
+						oscillator.start(startTime);
+						oscillator.stop(startTime + duration);
+					}
+				}
+				</script>
+			</header>
+
+			<!-- Banner -->
+				<section id="banner">
+					<div class="content">
+						<header>
+							<h2>Hi, I'm Akash Muni</h2>
+							<p>Technical Professional & Innovator </p>
+							<p>Aspiring to contribute to groundbreaking research and <br />
+								impactful innovation in technical and scientific domains.</p>
+						</header>
+						<span class="image"><img src="images/My Picture.jpg" alt="" /></span>
+					</div>
+					<a href="#one" class="goto-next scrolly">Next</a>
+				</section>
+
+			<!-- One -->
+				<section id="one" class="spotlight style1 bottom">
+					<span class="image fit main"><img src="images/3.jpg" alt="" /></span>
+					<div class="content">
+						<div class="container">
+							<div class="row">
+								<div class="col-4 col-12-medium">
+									<header>
+										<h2>About Me</h2>
+										<p>A highly capable and analytical technical professional with a passion for advancing cutting-edge technologies, and providing exceptional technical support.</p>
+									</header>
+								</div>
+								<div class="col-4 col-12-medium">
+									<p>I am a balanced, diligent, and highly capable technical professional with a strong analytical mindset 
+										and a background in physics. Having completed my Master’s degree and gained over two
+										years of hands-on experience in a reputed laboratory environment, I excel in both
+										independent and team-based research settings. My work has equipped me with expertise in 
+										advanced technical processes, including additive manufacturing, 3D printing, and 
+										materials optimization. I am particularly passionate about exploring innovative 
+										materials, optimizing 3D printing processes, and advancing the applications of 
+										additive manufacturing across various industries.</p>
+								</div>
+								<div class="col-4 col-12-medium">
+									<p>In addition to my technical skills, I am eager to expand my knowledge and expertise in network systems
+										 and infrastructure by working in a leading organization. My goal is to provide exceptional technical support, 
+										 troubleshoot complex issues, and optimize systems to enhance efficiency, precision, and scalability. 
+										 With a proactive approach, strong problem-solving abilities, and a commitment to delivering high-quality
+										 solutions, I aim to make an impactful contribution to the team. I am particularly interested in leveraging data-driven 
+										 analysis and interdisciplinary techniques to improve system performance and push the boundaries of 
+										 innovation in technical support.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<a href="#two" class="goto-next scrolly">Next</a>
+				</section>
+
+			<!-- Two -->
+				<section id="two" class="spotlight style2 right">
+					<span class="image fit main"><img src="images/Web_Photo_Editor.jpg" alt="" /></span>
+					<div class="content">
+						<header>
+							<h2>Skills & Expertise</h2>
+							<p>Additive Manufacturing<br />
+
+								3D Printing (FDM, SLA)<br />
+								
+								CAD Modeling (OnShape)<br />
+								
+								Materials Optimization<br />
+								
+								Data-Driven Experimentation<br />
+								
+								Troubleshooting & Debugging<br />
+								
+								Python, LaTeX, Linux (Basic)<br />
+								
+								Technical Support</p>
+						</header>
+						<p></p>
+						<ul class="actions">
+							<li><a href="CAD Models.html" class="button primary">Projects that showcase my CAD/ skills</a></li>
+						
+						</ul>
+						<ul class="actions">
+							<li><a href="right-sidebar.html" class="button primary">Projects showcasing my Hardware skills</a></li>
+						
+						</ul>
+						<ul class="actions">
+							<li><a href="no-sidebar.html" class="button primary">Projects showcasing my Scientific abilities</a></li>
+						
+						</ul>
+					</div>
+					<a href="#three" class="goto-next scrolly">Next</a>
+				</section>
+
+			<!-- Three -->
+				<section id="three" class="spotlight style3 left">
+					<span class="image fit main bottom"><img src="images/wallpaperflare.com_wallpaper.jpg" alt="" /></span>
+					<div class="content">
+						<header>
+							<h2>Education</h2>
+							<p>1. Master of Science (M.Sc) – Dr. Homi Bhabha State University (2020–2022)<br />
+								2. Bachelor of Science (B.Sc) – University of Mumbai (2016–2019)</p>
+						</header>
+						<p><!-- add text here --></p>
+						<ul class="actions">
+							<li><a href="images/Master_s Degree(1).jpg" class="button primary icon solid fa-download" download="Master_s Degree">Download MS Degree</a></li>
+						</ul>
+						<ul class="actions small">
+							<li><a href="images/University_Degree_Akash_Muni.jpg" class="button primary icon solid fa-download" download="University_Degree_Akash_Muni">Download BS Degree</a></li>
+							<h2> &nbsp;</h2>
+						</ul>
+					</div>
+					<a href="#four" class="goto-next scrolly">Next</a>
+				</section>
+
+			<!-- Four -->
+				<section id="four" class="wrapper style1 special fade-up">
+					<div class="container">
+						<header class="major">
+							<h2>Hobbies and Interests</h2>
+							<p>Debugging & Troubleshooting electronic Gadgets/ PCs/ Tools, 3D Design and Printing, Reading/Watching Tech Blogs/Vids & News, Cooking, Playing Chess & Electronic Games, Cycling and Running, Badminton
+								</p>
+						</header>
+						<!--<div class="box alt">
+							<div class="row gtr-uniform">
+								<section class="col-4 col-6-medium col-12-xsmall">
+									<span class="icon solid alt major fa-chart-area"></span>
+									<h3>Ipsum sed commodo</h3>
+									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
+								</section>
+								<section class="col-4 col-6-medium col-12-xsmall">
+									<span class="icon solid alt major fa-comment"></span>
+									<h3>Eleifend lorem ornare</h3>
+									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
+								</section>
+								<section class="col-4 col-6-medium col-12-xsmall">
+									<span class="icon solid alt major fa-flask"></span>
+									<h3>Cubilia cep lobortis</h3>
+									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
+								</section>
+								<section class="col-4 col-6-medium col-12-xsmall">
+									<span class="icon solid alt major fa-paper-plane"></span>
+									<h3>Non semper interdum</h3>
+									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
+								</section>
+								<section class="col-4 col-6-medium col-12-xsmall">
+									<span class="icon solid alt major fa-file"></span>
+									<h3>Odio laoreet accumsan</h3>
+									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
+								</section>
+								<section class="col-4 col-6-medium col-12-xsmall">
+									<span class="icon solid alt major fa-lock"></span>
+									<h3>Massa arcu accumsan</h3>
+									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
+								</section>
+							</div>
+						</div>
+						<footer class="major">
+							<ul class="actions special">
+								<li><a href="#" class="button">Magna sed feugiat</a></li>
+							</ul>
+						</footer>-->
+					</div>
+				</section>
+
+			<!-- Five
+				<section id="five" class="wrapper style2 special fade">
+					<div class="container">
+						<header>
+							<h2>Magna faucibus lorem diam</h2>
+							<p>Ante metus praesent faucibus ante integer id accumsan eleifend</p>
+						</header>
+						<form method="post" action="#" class="cta">
+							<div class="row gtr-uniform gtr-50">
+								<div class="col-8 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Your Email Address" /></div>
+								<div class="col-4 col-12-xsmall"><input type="submit" value="Get Started" class="fit primary" /></div>
+							</div>
+						</form>
+					</div>
+				</section>
+			-->
+			<!-- Footer -->
+				<footer id="footer">
+					<h3>Contact Me</h3>
+					<ul class="icons">
+						<!--<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>-->
+						<!--<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>-->
+						<li><a href="https://www.linkedin.com/in/akash-muni-48a73619b/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+						<li><a href="https://www.instagram.com/scientific_brat/" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="https://github.com/bratcoder-crypto" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="https://t.me/@Akash9969?start=Hello_Akash" class="icon solid alt fa-paper-plane"><span class="label">GitHub</span></a></li>
+						<li><a href="mailto:muni.akash@gmail.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+						<li><a href="tel:+919969940942" class="icon solid alt fa-phone" title="Call Me"><span class="label">Phone</span></a></li>
+					</ul>
+					<!--<ul class="copyright">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>-->
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
